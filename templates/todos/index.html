@@ -1,0 +1,35 @@
+{% extends 'todos/base.html' %}
+
+{% block title%} TODO-APP {% endblock %}
+
+{% block content %}
+
+<div class='container'>
+
+    <div class='border-bottom page_header'>
+        <h1>Todo List:</h1>
+    </div>
+
+    <div>
+        {% if todo_list %}
+            {% for item in todo_list %}
+            <div class='border-bottom m-3'>
+                <ul class='todo_task_list'>
+                    <li><h4>Title: {{ item.title }}</h4></li>
+                    <div class='task_descriptions'>
+                        <li>Description: {{ item.description }}</li>
+                        <li>Date Created: {{ item.date_created }}</li>
+                        <li>Completed: {{ item.isCompleted }}</li>
+                    </div>
+                </ul>
+            </div>
+            {% empty %}
+                <p>Good news! You don't have any task for now, just relax a bit and breathe!</p>
+            {% endfor %}
+        {% endif %}
+
+    </div>      
+
+</div>
+
+{% endblock %}

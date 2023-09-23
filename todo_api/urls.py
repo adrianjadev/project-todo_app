@@ -1,7 +1,7 @@
 from django.urls import path, include
 from .views import home, TodoView, TodoDetailView
 
-app_name = 'todo'
+app_name = 'todo_api'
 
 urlpatterns = [
     path('home', home, name='name'),
