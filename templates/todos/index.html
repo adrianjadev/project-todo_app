@@ -4,11 +4,35 @@
 
 {% block content %}
 
-<div class='container'>
+<div class="container text-center">
 
-    <div class='border-bottom page_header'>
-        <h1>My Todo List:</h1>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="page-header">
+                <h1>My Todo List:</h1>
+            </div>
+        </div>
     </div>
+
+    {% comment %} Add a new Todo Task {% endcomment %}
+
+    <div class="row" id="div-add">
+            <form method="POST" action="{% url 'todo_app:todo-add' %}">
+                {% csrf_token %}
+                <div class="row-cols-1">
+                    <input id="input-title" type="text" class="form-control" name="title" placeholder="Add a new task ..." required>
+                </div>
+                <div class="row-cols-1">
+                    <input id="input-title" type="text" class="form-control" name="description" placeholder="Add a description...">
+                </div>
+                <div class="row-cols-1" id="add-button">
+                    <button id="add-button" type="submit" class="btn btn-outline-primary" name="submit">Add</button>
+                </div>
+            </form>
+    </div>
+    <hr>
+
+    {% comment %} Display the Todo List {% endcomment %}
 
     <div>
         {% if todo_list %}
@@ -27,9 +51,7 @@
                 <p>Good news! You don't have any task for now, just relax a bit and breathe!</p>
             {% endfor %}
         {% endif %}
-
     </div>      
-
 </div>
 
 {% endblock %}

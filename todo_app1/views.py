@@ -18,3 +18,24 @@ def TodoItemsView(request):
         'todo_list': todo_list,
     }
     return render(request, 'todos/index.html', context)
+
+
+def TodoAdd(request):
+    title = request.POST['title']
+    description = request.POST['description']
+
+    todo = Todo.objects.create(
+        title=title,
+        description=description
+    )
+
+    todo.save()
+
+    return redirect('todo_app:todo-app-index')
+
+
+def TodoDelete(request, todo_id):
+    todo = get_object_or_404(Todo, pk=todo_id)
+    todo.delete()
+
+    return redirect('todo_app:todo-app-index')

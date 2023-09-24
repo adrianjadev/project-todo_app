@@ -1,5 +1,4 @@
 body {
-    text-align: center;
     background-color: #4B527E;
     text-emphasis-color: white;
     color: #f2f2f2;
@@ -7,17 +6,24 @@ body {
 
 .container {
     background-color: #4B527E;
-    align-items: center;
-    justify-content: center;
-    margin-top: 25px;
-}
-
-.page_header {
-    padding: 5px;
 }
 
 .todo_task_list {
     list-style: none;
     justify-content: center;
     text-align: left;
+}
+
+#div-add {
+    display: inline;
+}
+
+#add-button {
+    color: white;
+}
+
+#input-title,
+#input-desc {
+    margin-top: 7px;
+    margin-bottom: 7px;
 }
